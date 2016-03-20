@@ -1,4 +1,4 @@
-class AccessorOverload
+class AccessorOverloadExplicit
   ATTRIBUTES = [
     :foo, :bar, :baz, :quux, :anna, :karenina,
     :tolstoy, :oblonsky, :silvio, :gandalf, :bilbo, :frodo, :sam, :merry,
@@ -12,7 +12,19 @@ class AccessorOverload
   attr_accessor *ATTRIBUTES
 
   def initialize(params)
-    params.each { |attr, value| self.public_send("#{attr}=", value) }
+    @foo = params[:foo]
+    @bar = params[:bar]
+    @baz = params[:baz]
+    @quux = params[:quux]
+    @anna = params[:anna]
+    @karenina = params[:karenina]
+    @tolstoy = params[:tolstoy]
+    @oblonsky = params[:oblonsky]
+    @silvio = params[:silvio]
+    @gandalf = params[:gandalf]
+    @bilbo = params[:bilbo]
+    @frodo = params[:frodo]
+    @sam = params[:sam]
+    @merry = params[:merry]
   end
 end
-
