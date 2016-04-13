@@ -13,3 +13,7 @@ def generate_test_data
     [i, name, Time.at(rand * Time.now.to_i).strftime("%Y-%m-%d") ].join(',')
   end.join("\n")
 end
+
+def parse_data(data)
+  data.split("\n").map! { |row| parse_row(row) }
+end
