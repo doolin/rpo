@@ -17,3 +17,23 @@ end
 def parse_data(data)
   data.split("\n").map! { |row| parse_row(row) }
 end
+
+def parse_row(row)
+  row.split(",").map! { |col| parse_col(col) }
+end
+
+def parse_col(col)
+  if col =~ /^\d+$/
+    col.to_i
+  elsif col=~ /^\d{4}-\d{2}-\d{2}$/
+    Date.parse(col)
+  else
+    col
+  end
+end
+
+def find_youngest(people)
+  people.map! { |person| person[2] }.max
+end
+
+data = generate_test_data
