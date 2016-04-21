@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'date'
 require 'rubygems'
 require 'ruby-prof'
@@ -51,3 +53,6 @@ printer.print(File.open("app_graph_profile.txt", "w+"), min_percent: 3)
 
 printer = RubyProf::CallStackPrinter.new(result)
 printer.print(File.open("app_call_stack_profile.txt", "w+"))
+
+printer = RubyProf::CallTreePrinter.new(result)
+printer.print(File.open('callgrind.out.app', "w+"))
