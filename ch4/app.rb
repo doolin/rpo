@@ -38,6 +38,26 @@ def find_youngest(people)
   people.map! { |person| person[2] }.max
 end
 
+if ARGV[0] == "--test"
+
+  ARGV.clear
+  require 'minitest/autorun'
+
+  class AppTest < MiniTest::Unit::TestCase
+
+    def setup
+      @parsed_data = parse_data(generate_test_data)
+    end
+
+    def test_parsing
+      assert_equal @parsed_data.length, 50000
+      assert @parsed_data.all? do |row|
+        row.lnegth == 3 && row[0].class == Fixnum && row[2].class == Date
+      end
+    end
+  end
+end
+
 data = generate_test_data
 GC.disable
 result = RubyProf.profile do
