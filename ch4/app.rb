@@ -55,6 +55,11 @@ if ARGV[0] == "--test"
         row.lnegth == 3 && row[0].class == Fixnum && row[2].class == Date
       end
     end
+
+    def test_find_youngest
+      ypungest = find_youngest(@parsed_data)
+      assert @parsed_data.all? { |row| youngest >= row }
+    end
   end
 end
 
