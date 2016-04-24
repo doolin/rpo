@@ -61,6 +61,20 @@ if ARGV[0] == "--test"
       assert @parsed_data.all? { |row| youngest >= row }
     end
   end
+  exit(0)
+
+elsif ARGV[0] == '--benchmark'
+  require 'benchmark'
+
+  data = generate_test_data
+  result = Benchmark.realtime do
+    people = parse_data(data)
+    find_youngest(people)
+  end
+  puts "%5.3f" % result
+  exit(0)
+
+else
 end
 
 data = generate_test_data
