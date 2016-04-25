@@ -75,13 +75,12 @@ elsif ARGV[0] == '--benchmark'
   exit(0)
 
 else
-end
-
-data = generate_test_data
-GC.disable
-result = RubyProf.profile do
-  people = parse_data(data)
-  find_youngest(people)
+  data = generate_test_data
+  GC.disable
+  result = RubyProf.profile do
+    people = parse_data(data)
+    find_youngest(people)
+  end
 end
 
 printer = RubyProf::FlatPrinter.new(result)
