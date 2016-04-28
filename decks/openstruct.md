@@ -8,6 +8,7 @@
 
 ## What's the catch?
 
+Internally, OpenStruct defines methods for each parameter.
 
 # Cost of metaprogramming
 
