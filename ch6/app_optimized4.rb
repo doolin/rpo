@@ -31,3 +31,7 @@ end
 def find_youngest(people)
   people.map! { |person| person[2] }.max
 end
+
+data = generate_test_data
+people = parse_data(data)
+find_youngest(people)
